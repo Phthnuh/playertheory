@@ -1,0 +1,10 @@
+          <h2 class="section" style="margin-top: 10px">Recent Reviews</h2>
+          {exp:channel:entries channel="reviews" limit="10" dynamic="off"}
+            <aside>
+              <a href="{path=review}/{url_title}">
+                {exp:imgsizer:size src="{review_hero_image}" width="50" height="50" alt="{title}"}
+                <h2 class="subheading">{title}</h2>
+              </a>
+              <p>{review_subheading}</p>
+            </aside>
+          {/exp:channel:entries}

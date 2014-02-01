@@ -1,0 +1,10 @@
+          <h2 class="section" style="margin-top: 10px">Recent Articles</h2>
+          {exp:channel:entries channel="articles" limit="10" dynamic="off"}
+            <aside>
+              <a href="{path=article}/{url_title}">
+                {exp:imgsizer:size src="{article_hero_image}" width="50" height="50" alt="{title}"}
+                <h2 class="subheading">{title}</h2>
+              </a>
+              <p>{article_subheading}</p>
+            </aside>
+          {/exp:channel:entries}

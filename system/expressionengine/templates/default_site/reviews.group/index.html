@@ -1,0 +1,34 @@
+{!-- EE STUFF HERE --}
+
+{embed="embed/header"}
+
+    <div class="content">
+      <div class="wrapper">
+
+        <article>
+            {exp:channel:entries channel="reviews" limit="10" paginate="bottom"}
+              <p class="byline"><small>{entry_date format="%F %j%S, %Y at %g:%i%a"}</small> {!--<span class="sharelinks"><a href="#disqus_thread" class="dull"></a> <a href="{path=review}/{url_title}#comments"><i class="icon-comments"></i></a></span>--}</p>
+              <div class="list-item">
+                <a href="{path=review}/{url_title}">
+                {exp:imgsizer:size src="{review_hero_image}" width="150" style="float: left;" alt="{title}"}
+                <h2>{title}</h2></a>
+                <h2 class="subheading">{review_subheading}</h2>
+                <p>{review_maintext limit="1"}{row_content}{/review_maintext} <a href="{path=review}/{url_title}">Read more &raquo;</a></p>
+              </div>{!-- list-item--}
+              {paginate}
+                {pagination_links}
+              {/paginate}
+            {/exp:channel:entries}
+        </article>
+
+        <div class="rtcol">
+          {embed="embed/rtcol_recent_articles"}
+
+          {embed="embed/rtcol_ad"}
+
+          {embed="embed/rtcol_recent_reviews"}
+        </div><!--rtcol-->
+      </div><!--wrapper-->
+    </div><!-- content-->
+
+{embed="embed/footer"}

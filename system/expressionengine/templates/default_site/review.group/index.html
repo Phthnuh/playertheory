@@ -1,0 +1,46 @@
+{!-- EE STUFF HERE --}
+
+{embed="embed/header"}
+
+    <div class="content">
+      <div class="wrapper">
+
+        <article>
+            {exp:channel:entries entry="{last_segment}" dynamic="on" limit="1"}
+              <h1>{title}</h1>
+              {if review_subheading != ""}<h1 class="subheading">{review_subheading}</h1>{/if}
+              {if review_hero_image != ""}<img src="{review_hero_image}" alt="{title}{if review_subheading != ""} - {review_subheading}{/if}" class="hero">{/if}
+              <p class="byline">By <a href="">{author}</a> on {entry_date format="%F %j%S, %Y at %g:%i%a"} <span class="sharelinks"><a href="#disqus_thread" class="dull"></a> <a href="#comments"><i class="icon-comments"></i></a> | Share: <a href="http://facebook.com/sharer.php?u=http://playertheory.com/{segment_1}/{segment_2}" target="new"><i class="icon-facebook-sign"></i></a> <a href="http://twitter.com/intent/tweet?url=http://playertheory.com/{segment_1}/{segment_2}&text={title} - {review_subheading}&via=PlayerTheory" target="new"><i class="icon-twitter-sign"></i></a> <a href="https://plus.google.com/share?url=http://playertheory.com/{segment_1}/{segment_2}" target="new"><i class="icon-google-plus-sign"></i></a></span></p>
+
+              {review_maintext}
+                {if row_image != "" AND row_image_position == "Top"}{exp:imgsizer:size src="{row_image}" width="624"}{/if}
+                {if row_image != "" AND row_image_position == "Right"}{exp:imgsizer:size src="{row_image}" width="300" style="float: right; padding: 0 0 10px 10px;"}{/if}
+                {if row_image != "" AND row_image_position == "Left"}{exp:imgsizer:size src="{row_image}" width="300" style="float: left; padding: 0 10px 10px 0;"}{/if}
+                {if row_type == "Heading"}<h2>{row_content}</h2>{/if}
+                {if row_type == "Subheading"}<h2 class="subheading">{row_content}</h2>{/if}
+                {if row_type == "Paragraph"}<p>{row_content}</p>{/if}
+                {if row_type == "Quote"}<p class="quote">{row_content}</p>{/if}
+                {if row_image != "" AND row_image_position == "Bottom"}{exp:imgsizer:size src="{row_image}" width="624"}{/if}
+              {/review_maintext}
+
+              <div class="wrap-up">
+                <div class="score">Final Score: {review_score} / 10</div>
+                {if review_pros}<p><strong>Pros:</strong> {review_pros backspace="2"}{item}, {/review_pros}</p>{/if}
+                {if review_cons}<p><strong>Cons:</strong> {review_cons backspace="2"}{item}, {/review_cons}</p>{/if}
+              </div>
+            {/exp:channel:entries}
+
+            {embed="embed/comments"}
+        </article>
+
+        <div class="rtcol">
+          {embed="embed/rtcol_recent_articles"}
+
+          {embed="embed/rtcol_ad"}
+
+          {embed="embed/rtcol_recent_reviews"}
+        </div><!--rtcol-->
+      </div><!--wrapper-->
+    </div><!-- content-->
+
+{embed="embed/footer"}

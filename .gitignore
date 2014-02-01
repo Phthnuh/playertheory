@@ -1,4 +1,11 @@
+# OS files
 .DS_Store
+Thumbs.db
+
+# Compass files
+.bundle
+.sass-cache/*
+*.scssc
 
 # Images
 images/avatars/
@@ -13,3 +20,6 @@ sized/
 thumbs/
 _thumbs/
 */expressionengine/cache/*
+
+# Sensitive Information
+*config/database.php

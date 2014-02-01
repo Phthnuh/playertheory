@@ -1,0 +1,43 @@
+{!-- EE STUFF HERE --}
+
+{embed="embed/header"}
+
+    <div class="content">
+      <div class="wrapper">
+
+        <article>
+          <h1>Upcoming Releases</h2>
+          {exp:channel:entries channel="games" limit="200" paginate="bottom" show_future_entries="yes" start_on="{current_time format='%Y-%m-%d %H:%i'}"}
+            <div class="game-listing">
+              {exp:imgsizer:size src="{game_cover}" width="75" alt="{title}"}
+              <div class="game-info">
+                <h2 class="subheading">{title} {!--<span class="small-score">9/10</span>--}</h2>
+                <p>Release: {entry_date format="%n/%j/%Y"}</p>
+                {if game_developer != ""}<p>Developer: {game_developer}</p>{/if}
+                {if game_publisher != ""}<p>Publisher: {game_publisher}</p>{/if}
+                {if game_platforms != ""}<p>Platforms: {game_platforms}{title} {/game_platforms}</p>{/if}
+              </div>
+              <div class="game-listing-btns">
+                {!--<a href="">More Info &raquo;</a><br />
+                <a href="">View Coverage &raquo;</a><br />
+                <a href="">Read Review &raquo;</a>--}
+                {!--{if game_bestbuy != "" OR game_target != "" OR game_walmart != ""}<p>Pre-Purchase: {if game_bestbuy}<a href="{game_bestbuy}"><i class="icon-circle"></i></a> {/if}{if game_target}<a href="{game_target}"><i class="icon-circle"></i></a> {/if}{if game_walmart}<a href="{game_walmart}"><i class="icon-circle"></i></a>{/if}</p>{/if}--}
+              </div>
+            </div>
+            {paginate}
+              {pagination_links}
+            {/paginate}
+          {/exp:channel:entries}
+        </article>
+
+        <div class="rtcol">
+          {embed="embed/rtcol_recent_articles"}
+
+          {embed="embed/rtcol_ad"}
+
+          {embed="embed/rtcol_recent_reviews"}
+        </div><!--rtcol-->
+      </div><!--wrapper-->
+    </div><!-- content-->
+
+{embed="embed/footer"}

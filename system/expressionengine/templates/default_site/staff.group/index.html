@@ -1,0 +1,66 @@
+{!-- EE STUFF HERE --}
+
+{embed="embed/header"}
+
+    <div class="content">
+      <div class="wrapper">
+
+        <article>
+            {exp:channel:entries entry_id="2"}
+              <h1>{pagetext_heading}</h1>
+              {pagetext_maintext}
+            {/exp:channel:entries}
+
+            {if last_segment == "staff"}
+            {exp:channel:entries channel="staff"  entry_id="49"}
+              <div class="list-item border-top">
+                {!--<a href="{path=staff}/{url_title}">--}
+                {if staff_photo}{exp:imgsizer:size src="{staff_photo}" width="150" height="150" style="float: left;" alt="{title}"}{if:else}<img src="/images/player-theory-avatar-dim.png">{/if}
+                <h2>{title}</h2>{!--</a>--}
+                <h2 class="subheading">{staff_jobtitle}</h2>
+                <p>{if staff_email != ""}{staff_email}{/if} {if staff_twitter}<a href="http://twitter.com/{staff_twitter}" target="new">@{staff_twitter}</a>{/if}{!--<a href="{path=staff}/{url_title}">Read Bio &raquo;</a>--}</p>
+              </div>{!-- list-item--}
+            {/exp:channel:entries}
+
+            {exp:channel:entries channel="staff" entry_id="50"}
+              <div class="list-item border-top">
+                {!--<a href="{path=staff}/{url_title}">--}
+                {if staff_photo}{exp:imgsizer:size src="{staff_photo}" width="150" height="150" style="float: left;" alt="{title}"}{if:else}<img src="/images/player-theory-avatar-dim.png">{/if}
+                <h2>{title}</h2>{!--</a>--}
+                <h2 class="subheading">{staff_jobtitle}</h2>
+                <p>{if staff_email != ""}{staff_email}{/if} {if staff_twitter}<a href="http://twitter.com/{staff_twitter}" target="new">@{staff_twitter}</a>{/if}{!--<a href="{path=staff}/{url_title}">Read Bio &raquo;</a>--}</p>
+              </div>{!-- list-item--}
+            {/exp:channel:entries}
+
+            {exp:channel:entries channel="staff" sort="asc" orderby="title" entry_id="not 49|50"}
+              <div class="list-item border-top">
+                {!--<a href="{path=staff}/{url_title}">--}
+                {if staff_photo}{exp:imgsizer:size src="{staff_photo}" width="150" height="150" style="float: left;" alt="{title}"}{if:else}<img src="/images/player-theory-avatar-dim.png">{/if}
+                <h2>{title}</h2>{!--</a>--}
+                <h2 class="subheading">{staff_jobtitle}</h2>
+                <p>{if staff_email != ""}{staff_email}{/if} {if staff_twitter}<a href="http://twitter.com/{staff_twitter}" target="new">@{staff_twitter}</a>{/if}{!--<a href="{path=staff}/{url_title}">Read Bio &raquo;</a>--}</p>
+              </div>{!-- list-item--}
+            {/exp:channel:entries}
+          {if:else}
+            {exp:channel:entries entry="{last_segment}" dynamic="on" limit="1"}
+              <h1>{title}</h1>
+              {if staff_jobtitle != ""}<h1 class="subheading">{staff_jobtitle}</h1>{/if}
+              <p>{if staff_email != ""}{staff_email}{/if} {if staff_twitter}<a href="http://twitter.com/{staff_twitter}" target="new">@{staff_twitter}</a>{/if}</p>
+              {if staff_photo != ""}{exp:imgsizer:size src="{staff_photo}" width="300" style="float: left; padding: 0 10px 10px 0;"}{/if}
+              {if staff_bio != ""}{staff_bio}{/if}
+            {/exp:channel:entries}
+
+          {/if}
+        </article>
+
+        <div class="rtcol">
+          {embed="embed/rtcol_recent_articles"}
+
+          {embed="embed/rtcol_ad"}
+
+          {embed="embed/rtcol_recent_reviews"}
+        </div><!--rtcol-->
+      </div><!--wrapper-->
+    </div><!-- content-->
+
+{embed="embed/footer"}

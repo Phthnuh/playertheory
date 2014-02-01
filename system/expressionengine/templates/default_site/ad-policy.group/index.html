@@ -1,0 +1,25 @@
+{!-- EE STUFF HERE --}
+
+{embed="embed/header"}
+
+    <div class="content">
+      <div class="wrapper">
+
+        <article>
+            {exp:channel:entries entry_id="28"}
+              <h1>{pagetext_heading}</h1>
+              {pagetext_maintext}
+            {/exp:channel:entries}
+        </article>
+
+        <div class="rtcol">
+          {embed="embed/rtcol_recent_articles"}
+
+          {embed="embed/rtcol_ad"}
+
+          {embed="embed/rtcol_recent_reviews"}
+        </div><!--rtcol-->
+      </div><!--wrapper-->
+    </div><!-- content-->
+
+{embed="embed/footer"}

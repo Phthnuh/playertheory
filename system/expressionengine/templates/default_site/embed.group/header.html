@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      {if segment_2}{exp:channel:entries entry="{segment_2}" dynamic="on" limit="1"}{title} | {/exp:channel:entries}{/if}
+      {if segment_1 == "articles"}Articles | {/if}
+      {if segment_1 == "reviews"}Reviews | {/if}
+      {if segment_1 == "upcoming"}Upcoming | {/if}
+      {if segment_1 == "latest"}Latest | {/if}
+      {if segment_1 == "about"}About | {/if}
+      {if segment_1 == "staff"}Staff | {/if}
+      {if segment_1 == "jobs"}Jobs | {/if}
+      {if segment_1 == "privacy-policy"}Privacy Policy | {/if}
+      {if segment_1 == "review-policy"}Review Policy | {/if}
+      {if segment_1 == "ad-policy"}Ad Policy | {/if}
+      {if segment_1 == "contact"}Contact | {/if}
+      Player Theory
+    </title>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes" />
+
+    {if segment_1 == "articles" AND segment_2 != ""}
+      {exp:channel:entries channel="articles" entry="{segment_2}" dynamic="on" limit="1"}
+        <title>{title} | Player Theory</title>
+        <meta property="og:title" content="{title} | Player Theory"/>
+        <meta property="og:image" content="{article_hero_image}"/>
+        <meta name="description" content="{article_subheading} | {article_maintext limit="1"}{row_content}{/article_maintext}"/>
+      {/exp:channel:entries}
+    {/if}
+    {if segment_1 == "reviews" AND segment_2 != ""}
+      {exp:channel:entries channel="reviews" entry="{segment_2}" dynamic="on" limit="1"}
+        <title>{title} | Player Theory</title>
+        <meta property="og:title" content="{title} | Player Theory"/>
+        <meta property="og:image" content="{review_hero_image}"/>
+        <meta name="description" content="{review_subheading} | {review_maintext limit="1"}{row_content}{/review_maintext}"/>
+      {/exp:channel:entries}
+    {/if}
+
+    <link href="{path=styles/playertheory}" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  </head>
+  
+  <body>
+      <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-42488618-1', 'playertheory.com');
+      ga('send', 'pageview');
+    </script>
+    <div class="spanner">
+      <script type="text/javascript"><!--
+      google_ad_client = "ca-pub-9928807883494948";
+      /* Player Theory - Above Nav Leaderboard */
+      google_ad_slot = "8168265197";
+      google_ad_width = 728;
+      google_ad_height = 90;
+      //-->
+      </script>
+      <script type="text/javascript"
+      src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+      </script>
+    </div>
+    
+    <div class="header">
+      <div class="wrapper">
+        <div class="logo"><a href="{path=site_index}" title="Player Theory">Player Theory</a></div>
+        <div class="main-nav">
+          <ul>
+            <li><a href="{path=articles}">Articles</a></li>
+            <li><a href="{path=reviews}">Reviews</a></li>
+            <li><a href="{path=upcoming}">Upcoming</a></li>
+            <li><a href="{path=latest}">Latest</a></li>
+          </ul>
+        </div><!--main-nav-->
+      </div><!--wrapper-->
+    </div><!--header-->

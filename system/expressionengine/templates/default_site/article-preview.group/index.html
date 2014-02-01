@@ -1,0 +1,45 @@
+{!-- EE STUFF HERE --}
+
+{embed="embed/header"}
+
+    <div class="content">
+      <div class="wrapper">
+
+        <article>
+            {exp:channel:entries entry="{last_segment}" dynamic="on" limit="1" status="open|closed|Work In Progress|needs review" show_future_entries="yes"}
+              <h1>{title}</h1>
+              {if article_subheading != ""}<h1 class="subheading">{article_subheading}</h1>{/if}
+              {if article_hero_image != ""}<img src="{article_hero_image}" alt="{title}{if article_subheading != ""} - {article_subheading}{/if}" class="hero">{/if}
+              <p class="byline">By <a href="">{author}</a> on {entry_date format="%F %j%S, %Y at %g:%i%a"} <span class="sharelinks"><a href="#disqus_thread" class="dull"></a> <a href="#comments"><i class="icon-comments"></i></a> | Share: <a href="http://facebook.com/sharer.php?u=http://playertheory.com/{segment_1}/{segment_2}" target="new"><i class="icon-facebook-sign"></i></a> <a href="http://twitter.com/intent/tweet?url=http://playertheory.com/{segment_1}/{segment_2}&text={title} - {article_subheading}&via=PlayerTheory" target="new"><i class="icon-twitter-sign"></i></a> <a href="https://plus.google.com/share?url=http://playertheory.com/{segment_1}/{segment_2}" target="new"><i class="icon-google-plus-sign"></i></a></span></p>
+
+              {article_maintext}
+                {if row_image != "" AND row_image_position == "Top"}{exp:imgsizer:size src="{row_image}" width="624"}{/if}
+                {if row_image != "" AND row_image_position == "Right"}{exp:imgsizer:size src="{row_image}" width="300" style="float: right; padding: 0 0 10px 10px;"}{/if}
+                {if row_image != "" AND row_image_position == "Left"}{exp:imgsizer:size src="{row_image}" width="300" style="float: left; padding: 0 10px 10px 0;"}{/if}
+                {if row_type == "Heading"}<h2>{row_content}</h2>{/if}
+                {if row_type == "Subheading"}<h2 class="subheading">{row_content}</h2>{/if}
+                {if row_type == "Paragraph"}<p>{row_content}</p>{/if}
+                {if row_type == "Quote"}<p class="quote">{row_content}</p>{/if}
+                {if row_image != "" AND row_image_position == "Bottom"}{exp:imgsizer:size src="{row_image}" width="624"}{/if}
+              {/article_maintext}
+
+              {if article_source_links}
+              <div class="bottom-block">
+                <p>Source: {article_source_links}<a href="{link_url}" target="new">{link_text}</a> {/article_source_links}</p>
+              </div>
+              {/if}
+            {/exp:channel:entries}
+
+        </article>
+
+        <div class="rtcol">
+          {embed="embed/rtcol_recent_articles"}
+
+          {embed="embed/rtcol_ad"}
+
+          {embed="embed/rtcol_recent_reviews"}
+        </div><!--rtcol-->
+      </div><!--wrapper-->
+    </div><!-- content-->
+
+{embed="embed/footer"}
